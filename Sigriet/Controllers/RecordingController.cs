@@ -1,4 +1,7 @@
-﻿using System.IO;
+﻿using Microsoft.Azure;
+using Microsoft.WindowsAzure.Storage;
+using System;
+using System.IO;
 using System.Web;
 using System.Web.Http;
 
@@ -15,12 +18,16 @@ namespace Sigriet.Controllers
             {
                 var fileName = Path.GetFileName(file.FileName);
 
-                var path = Path.Combine(
-                    HttpContext.Current.Server.MapPath("~/"),
-                    fileName
-                );
+                var storageAccount = CloudStorageAccount.Parse(
+                    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-                file.SaveAs(path);
+                var blobClient = storageAccount.CreateCloudBlobClient();
+
+                var container = blobClient.GetContainerReference("calls");
+
+                var blockBlob = container.GetBlockBlobReference($"{DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss")}.wav");
+
+                blockBlob.UploadFromStream(file.InputStream);
             }
         }
     }
