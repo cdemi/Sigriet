@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <vxml version = "2.1">
   <form>
-    <record name="message" beep="true" maxtime="60s">
+    <record name="message" beep="true" maxtime="180s">
       <prompt>Please leave your secret after the beep, then press any key.</prompt>
     </record>
     <block>
