@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<vxml version = "2.1">
+  <form>
+    <record name="message" beep="true" maxtime="60s">
+      <prompt>Please leave your message after the beep, then press any key.</prompt>
+    </record>
+    <block>
+      <submit next="api/Recording/Add" enctype="multipart/form-data" method="post"/>
+    </block>
+  </form>
+</vxml>
