@@ -162,6 +162,8 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="webroot\css\style.css" />
+    <Content Include="webroot\js\script.js" />
     <Content Include="WelcomeMessage.xml" />
   </ItemGroup>
   <ItemGroup>
