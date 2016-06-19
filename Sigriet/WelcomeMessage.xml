@@ -2,7 +2,7 @@
 <vxml version = "2.1">
   <form>
     <record name="message" beep="true" maxtime="60s">
-      <prompt>Please leave your message after the beep, then press any key.</prompt>
+      <prompt>Please leave your secret after the beep, then press any key.</prompt>
     </record>
     <block>
       <submit next="api/Recording/Add" enctype="multipart/form-data" method="post"/>
